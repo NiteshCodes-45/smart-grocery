@@ -1,9 +1,18 @@
 import './App.css'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
+import GroceryInput from "./components/GroceryInput";
+import GroceryList from "./components/GroceryList";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Smart Grocery App</h1>
+    <div>
+      <Header />
+      <main style={{ padding: '1rem' }}>
+        <GroceryInput />
+        <GroceryList />
+      </main>
+      <Footer />
     </div>
   )
 }

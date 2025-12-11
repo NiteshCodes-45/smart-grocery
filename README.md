@@ -7,8 +7,8 @@ Build a pragmatic SPA to practice React fundamentals: hooks, component design, l
 
 ## Tech
 - React + Vite
-- Plain CSS or Tailwind CSS (choose later)
-- localStorage (initially), optional Firebase later
+- Tailwind CSS
+- localStorage (initially), Firebase later
 - Optional: Charting library (Recharts/Chart.js)
 
 ## Data model (localStorage)
