@@ -16,7 +16,10 @@ export default function useLocalStorage(key, initialValue) {
   const [state, setState] = useState(() => {
     try {
       const raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : typeof initialValue === "function" ? initialValue() : initialValue;
+      if (raw) return JSON.parse(raw);
+
+      // nothing in storage → fallback
+      return typeof initialValue === "function" ? initialValue() : initialValue;
     } catch (err) {
       console.error("useLocalStorage: read error", err);
       return typeof initialValue === "function" ? initialValue() : initialValue;

@@ -1,9 +1,210 @@
+/* src/styles/app.css (improved & responsive) */
+:root{
+  --bg: #fafafa;
+  --muted: #666;
+  --border: #e6e6e6;
+  --accent: #27ae60;
+  --accent-dark: #219150;
+  --danger: #e74c3c;
+  --radius: 8px;
+  --max-width: 800px;
+}
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #111;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
-.App {
+
+/* container */
+.app-root {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* header/footer */
+header {
   text-align: center;
-  padding: 2rem;
+  padding: 1rem 0;
+}
+header h1 { margin: 0; font-size: 1.4rem; }
+header p { color: var(--muted); margin-top: 4px; font-size: 0.95rem; }
+
+/* reset list */
+.grocery-list { padding: 0; list-style: none; margin: 0; }
+
+/* each item */
+.grocery-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background .12s ease, transform .08s ease;
+}
+.grocery-item:hover { transform: translateY(-1px); }
+
+.grocery-item .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0; /* allow text truncation */
+}
+.grocery-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+/* name + meta */
+.grocery-item .item-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grocery-item .item-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* completed state (use this class in markup when bought === true) */
+.grocery-item.completed { background: #fbfbfb; }
+.grocery-item.completed .item-name { text-decoration: line-through; color: #999; }
+.grocery-item.completed .item-meta { color: #aaa; }
+
+/* actions */
+.grocery-item .actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.grocery-item .actions button {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.grocery-item .actions .remove {
+  color: var(--danger);
+  border-color: rgba(231,76,60,0.12);
+  min-width: 70px;
+}
+.grocery-item .actions button:focus { outline: 3px solid rgba(39,174,96,0.12); }
+
+/* form */
+form.grocery-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+  width: 100%;
+}
+form.grocery-input .input-name {
+  flex: 1 1 auto;
+  padding: 10px 12px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+}
+form.grocery-input input[type="number"] {
+  width: 90px;
+  padding: 10px 12px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+}
+form.grocery-input select {
+  min-width: 130px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  background: white;
+}
+form.grocery-input button[type="submit"] {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+form.grocery-input button[type="submit"]:hover { background: var(--accent-dark); }
+
+/* suggestions box (absolutely positioned under the input wrapper) */
+.suggestions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 6px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(22,30,40,0.06);
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 60;
+  max-height: 220px;
+  overflow: auto;
+}
+.suggestions li { margin-bottom: 6px; }
+.suggestions li:last-child { margin-bottom: 0; }
+.suggestions button {
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+.suggestions button:hover, .suggestions button:focus {
+  background: #f2f8f2;
+  outline: none;
+}
+
+/* small helpers */
+hr { border: none; border-top: 1px solid #f0f0f0; margin: 18px 0; }
+
+/* responsive adjustments */
+@media (max-width: 720px) {
+  :root { --max-width: 720px; }
+  form.grocery-input input[type="number"] { width: 80px; }
+  form.grocery-input select { min-width: 120px; }
+}
+
+@media (max-width: 600px) {
+  .app-root { padding: 12px; }
+  form.grocery-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  form.grocery-input .input-name,
+  form.grocery-input input[type="number"],
+  form.grocery-input select,
+  form.grocery-input button[type="submit"] {
+    width: 100%;
+  }
+  .grocery-item { padding: 12px; flex-direction: column; align-items: stretch; gap: 10px; }
+  .grocery-item .actions { justify-content: flex-end; }
 }
