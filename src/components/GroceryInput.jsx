@@ -57,8 +57,9 @@ export default function GroceryInput({ history = [], onAdd, categories}) {
 
   return (
     <form className="grocery-input" onSubmit={submit} style={{ position: "relative" }} autoComplete="off">
-      <div style={{ display: "flex", gap: 8 }}>
-        <input
+      <div className="input-row inputs">
+        <input 
+          type="text"
           ref={inputRef}
           className="input-name"
           value={name}
@@ -73,7 +74,6 @@ export default function GroceryInput({ history = [], onAdd, categories}) {
           min={1}
           value={qty}
           onChange={(e) => setQty(e.target.value)}
-          style={{ width: 80, padding: 8 }}
           aria-label="Quantity"
         />
         <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ padding: 8 }}>
@@ -85,18 +85,7 @@ export default function GroceryInput({ history = [], onAdd, categories}) {
       </div>
 
       {showSuggestions && suggestions && suggestions.length > 0 && name.length > 0 && (
-        <ul className="suggestions" style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          background: "white",
-          border: "1px solid #ddd",
-          marginTop: 6,
-          listStyle: "none",
-          padding: 8,
-          borderRadius: 6,
-          zIndex: 50
-        }}>
+        <ul className="suggestions" role="listbox" aria-label="Suggestions">
           {suggestions.map((s, i) => (
             <li key={s + i} style={{ marginBottom: 6 }}>
               <button

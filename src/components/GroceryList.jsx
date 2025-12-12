@@ -1,47 +1,89 @@
 // src/components/GroceryList.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import GroceryItem from "./GroceryItem";
 
 export default function GroceryList({ items = [], onToggle, onRemove, categories = [] }) {
-  const [selectedFilter, setSelectedFilter] = useState("All");
-  const [filteredData, setFilteredData] = useState(items);
+  const [statusFilter, setStatusFilter] = useState("All"); // All | ToBuy | Bought
+  const [categoryFilter, setCategoryFilter] = useState("All");
 
-  // Keep filteredData in sync whenever items or selectedFilter changes
-  useEffect(() => {
-    if (selectedFilter === "All") {
-        setFilteredData(items);
-    } else {
-        setFilteredData(items.filter(item => item.category === selectedFilter));
-    }
-  }, [items, selectedFilter]);
+  // filtering logic using useMemo (industry pattern)
+  const filteredItems = useMemo(() => {
+    return items.filter(item => {
+      // status filtering
+      if (statusFilter === "Bought" && !item.bought) return false;
+      if (statusFilter === "ToBuy" && item.bought) return false;
 
-  // Handler for select
-  const handleFilterChange = (e) => {
-    setSelectedFilter(e.target.value);
-  };
+      // category filtering
+      if (categoryFilter !== "All" && item.category !== categoryFilter) return false;
 
-  if (!items || items.length === 0) return <p>No items — add something tasty.</p>;
+      return true;
+    });
+  }, [items, statusFilter, categoryFilter]);
+
+  if (!items.length) {
+    return <p>No items yet — start adding something delicious! 😄</p>;
+  }
 
   return (
-    <>
-      {/* Category filter */}
-      <div style={{ marginBottom: 16 }}>
-        <label htmlFor="category-filter" style={{ marginRight: 8 }}>Filter by category:</label>
-        <select id="category-filter" value={selectedFilter} onChange={handleFilterChange} style={{ padding: 8 }}>
-          <option value="All">All</option>
-          {categories.map(cat => (
-            <option key={cat} value={cat}>{cat}</option>
-          ))}
-        </select>
+    <div className="grocery-list-wrapper">
+      {/* Status filters */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 18, justifyContent: "center" }}>
+        <button
+          className={statusFilter === "All" ? "active-filter" : ""}
+          onClick={() => setStatusFilter("All")}
+        >
+          All
+        </button>
+        <button
+          className={statusFilter === "ToBuy" ? "active-filter" : ""}
+          onClick={() => setStatusFilter("ToBuy")}
+        >
+          To Buy
+        </button>
+        <button
+          className={statusFilter === "Bought" ? "active-filter" : ""}
+          onClick={() => setStatusFilter("Bought")}
+        >
+          Bought
+        </button>
       </div>
 
-      {!filteredData || filteredData.length === 0 ? (<p>No items in this category.</p>) : null}
+      {/* Category filter */}
+      <div style={{ marginBottom: 16, display: "flex", alignItems: "center", gap: 8, justifyContent: "space-between" }}>
+        <div>
+            <label style={{ marginRight: 8 }}>Category:</label>
+            <select
+            id="category-filter"
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            style={{ padding: 8 }}
+            >
+            <option value="All">All</option>
+            {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                {cat}
+                </option>
+            ))}
+            </select>
+        </div>
+        {/* Info line */}
+        <p style={{ color: "#666", margin: "6px 0 12px" }}>
+          Showing <strong>{filteredItems.length}</strong> of {items.length}{" "}
+          items
+        </p>
+      </div>
 
-      <ul className="grocery-list" style={{ padding: 0, listStyle: "none" }}>
-        {filteredData.map(item => (
-          <GroceryItem key={item.id} item={item} onToggle={() => onToggle(item.id)} onRemove={() => onRemove(item.id)} />
+      {/* List */}
+      <ul className="grocery-list">
+        {filteredItems.map((item) => (
+          <GroceryItem
+            key={item.id}
+            item={item}
+            onToggle={() => onToggle(item.id)}
+            onRemove={() => onRemove(item.id)}
+          />
         ))}
       </ul>
-    </>
+    </div>
   );
 }
