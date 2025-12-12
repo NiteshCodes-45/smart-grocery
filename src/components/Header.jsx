@@ -1,9 +1,14 @@
-const Header = () => {
-    return (
-        <header style={{ textAlign: "center", padding: "1rem 0" }}>
-            <h1>Smart Grocery List</h1>
-            <p style={{ color: "#666", marginTop: 4 }}>Manage your groceries efficiently</p>
-        </header>
-    );
+export default function Header() {
+  return (
+    <header className="app-header">
+      <div className="header-content">
+        <div className="logo-circle">🛒</div>
+
+        <div>
+          <h1>Smart Grocery List</h1>
+          <p>Manage groceries effortlessly</p>
+        </div>
+      </div>
+    </header>
+  );
 }
-export default Header;

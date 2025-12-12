@@ -14,9 +14,7 @@ export default function GroceryItem({ item, onToggle, onRemove }) {
         </div>
       </div>
       <div className="actions">
-        <button className="remove" onClick={onRemove}>
-          Remove
-        </button>
+        <button className="remove" onClick={onRemove} aria-label={`Remove ${item.name}`}>Remove</button>
       </div>
     </li>
   );
