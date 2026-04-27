@@ -63,4 +63,4 @@ See the [LICENSE](LICENSE) file for details.
 
 ## Author
 
-Built by Nitesh Chaughule
+Built by [Nitesh Chaughule](https://github.com/NiteshCodes-45)
