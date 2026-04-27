@@ -50,7 +50,7 @@ Smart Grocery is a cross-platform mobile app designed to help users organize, tr
 
 We respect user privacy and do not sell personal data.
 
-👉 [Privacy Policy](https://your-site.vercel.app/privacy)
+👉 [Privacy Policy](https://smart-grocery-zeta.vercel.app/privacy)
 
 ---
 
