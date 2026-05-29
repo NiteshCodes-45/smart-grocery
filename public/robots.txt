@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://smart-grocery.app/sitemap.xml
+Host: https://smart-grocery.app

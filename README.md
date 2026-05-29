@@ -1,48 +1,48 @@
 # 🛒 Smart Grocery
 
-Smart Grocery is a cross-platform mobile app designed to help users organize, track, and analyze their grocery habits with intelligent insights.
+Smart Grocery is a responsive landing website for a grocery planning and spending tracker app. This repository contains the Vite + React website with SEO metadata, social preview support, and public crawl controls.
 
 ---
 
 ## Features
 
-- 📋 Smart Grocery Lists
-- 🔁 Recurring Item Tracking
-- 📊 Monthly Spending Insights
-- 🔔 Daily Reminder Notifications
-- 📦 Category & Frequency Management
-- 📈 Usage Analytics (most frequent items, trends)
-- 📱 Offline-first experience
+- 📋 Engaging landing page for the Smart Grocery experience
+- 🔎 SEO metadata, Open Graph, and Twitter Card support
+- 🤖 `robots.txt` and `sitemap.xml` included for crawl indexing
+- 📱 Responsive mobile-first layout
+- 🎨 React + Vite frontend with React Router navigation
 
 ---
 
-## Landing Page
+## Live site
 
-👉 [Visit Website](https://smart-grocery-zeta.vercel.app)
+👉 [Visit Website](https://smartgrocery.niteshchaughule.dev/)
 
 ---
 
 ## Download
 
-- Android: (Add Play Store link)
-- iOS: (Add App Store link)
+- Android: Coming soon
+- iOS: Coming soon
 
 ---
 
 ## Tech Stack
 
-- React Native (Expo)
-- Firebase (Auth + Firestore)
-- React (Landing Website)
-- Vercel (Hosting)
+- React 19 + Vite
+- React Router DOM
+- Emotion + MUI icons
+- React Icons
+- Static SEO metadata and social preview support
 
 ---
 
-## Future Features
+## SEO
 
-- 📷 Grocery Scan (AI-based detection)
-- 📊 Advanced Analytics Dashboard
-- 🔄 Auto-suggestions based on history
+- `public/robots.txt` controls crawler access
+- `public/sitemap.xml` lists the main site pages
+- `public/logo-48.png` is used as the social preview image
+- Canonical URL is configured at `https://smartgrocery.niteshchaughule.dev/`
 
 ---
 
@@ -50,7 +50,7 @@ Smart Grocery is a cross-platform mobile app designed to help users organize, tr
 
 We respect user privacy and do not sell personal data.
 
-👉 [Privacy Policy](https://smart-grocery-zeta.vercel.app/privacy)
+👉 [Privacy Policy](https://smartgrocery.niteshchaughule.dev/privacy)
 
 ---
 

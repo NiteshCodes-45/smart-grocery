@@ -9,6 +9,7 @@ html {
 }
 
 .landing-container {
+  position: relative;
   background: linear-gradient(180deg, #F4FFF7 0%, #ECFDF5 35%, #FFFFFF 100%);
   font-family: 'Inter', sans-serif;
   overflow: hidden;
@@ -44,6 +45,12 @@ html {
   padding: 40px 24px;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .landing-content {
+    padding: 24px 12px;
+  }
 }
 
 .install-btn {
@@ -364,6 +371,18 @@ html {
   box-shadow: 0 14px 32px rgba(47, 111, 78, 0.08);
 }
 
+@media (max-width: 480px) {
+  .value-strip {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .value-item {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}
+
 .value-icon {
   color: #2F6F4E;
   font-size: 16px;
@@ -599,6 +618,43 @@ html {
   flex-wrap: wrap;
 }
 
+@media (max-width: 600px) {
+  .cta-card {
+    padding: 20px 16px 28px 16px;
+  }
+
+  .cta-title {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .cta-buttons {
+    gap: 10px;
+  }
+
+  .cta-store-btn {
+    padding: 12px 14px;
+    font-size: 13px;
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-card {
+    padding: 16px 12px 24px 12px;
+    border-radius: 18px;
+  }
+
+  .cta-title {
+    font-size: 18px;
+  }
+
+  .cta-store-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
 .cta-store-btn {
   padding: 14px 20px;
   border-radius: 16px;
@@ -625,6 +681,8 @@ html {
 /* FOOTER */
 .footer-section {
   margin-bottom: 20px;
+  border: 1px solid rgba(47, 111, 78, 0.08);
+  border-radius: 12px;
 }
 
 .footer-grid {
@@ -667,8 +725,9 @@ html {
 
 .footer-links {
   display: flex;
-  gap: 16px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  justify-self:center; 
 }
 
 .footer-links a {
@@ -724,6 +783,13 @@ html {
   margin: 2em 0;
 }
 
+@media (max-width: 600px) {
+  .section-subBenefit {
+    grid-template-columns: 1fr;
+    font-size: 13px;
+    margin: 1.5em 0;
+  }
+}
 
 .page-title {
   font-size: 24px;
