@@ -1,4 +1,4 @@
-# 🛒 Smart Grocery
+# Smart Grocery
 
 Smart Grocery is a responsive landing website for a grocery planning and spending tracker app. This repository contains the Vite + React website with SEO metadata, social preview support, and public crawl controls.
 
@@ -6,11 +6,11 @@ Smart Grocery is a responsive landing website for a grocery planning and spendin
 
 ## Features
 
-- 📋 Engaging landing page for the Smart Grocery experience
-- 🔎 SEO metadata, Open Graph, and Twitter Card support
-- 🤖 `robots.txt` and `sitemap.xml` included for crawl indexing
-- 📱 Responsive mobile-first layout
-- 🎨 React + Vite frontend with React Router navigation
+- Engaging landing page for the Smart Grocery experience
+- SEO metadata, Open Graph, and Twitter Card support
+- `robots.txt` and `sitemap.xml` included for crawl indexing
+- Responsive mobile-first layout
+- React + Vite frontend with React Router navigation
 
 ---
 

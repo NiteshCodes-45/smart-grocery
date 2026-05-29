@@ -11,14 +11,7 @@ import Footer from "./Footer";
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
 
 export default function LandingPage() {
-  const handleDownloadClick = (event) => {
-    event.preventDefault();
-    const target = document.getElementById('download');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
+  
   return (
     <div className="landing-container">
       <div className="landing-content">
@@ -50,7 +43,7 @@ export default function LandingPage() {
               </p>
 
               <div className="hero-cta-row">
-                <a href="#download" className="primary-btn-large" onClick={handleDownloadClick}>
+                <a href="#download" className="primary-btn-large">
                   Download App
                 </a>
 
