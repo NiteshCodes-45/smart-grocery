@@ -5,6 +5,8 @@ import "./App.css";
 import "./pages/LandingPage.css";
 import Terms from "./pages/Terms";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import DeleteAccount from "./pages/DeleteAccount";
+import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -13,6 +15,9 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/delete-account" element={<DeleteAccount />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   );

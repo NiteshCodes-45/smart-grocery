@@ -1,110 +1,141 @@
 import React from 'react';
-import logo from "../assets/logo.png";
+import screen1 from "../assets/app-screenshots/smart-grocery-1.jpg";
+import screen2 from "../assets/app-screenshots/smart-grocery-2.jpg";
+import screen3 from "../assets/app-screenshots/smart-grocery-3.jpg";
+//import screen4 from "../assets/app-screenshots/smart-grocery-4.jpg";
+import landingBg from "../assets/app-screenshots/landing.png";
 import { IoCheckmarkCircleOutline, IoCartOutline, IoTimeOutline, IoAnalyticsOutline } from 'react-icons/io5';
 import "./LandingPage.css";
 import { Link } from 'react-router-dom';
+import Footer from "./Footer";
+import { FaGooglePlay, FaApple } from 'react-icons/fa';
 
 export default function LandingPage() {
-  
+  const handleDownloadClick = (event) => {
+    event.preventDefault();
+    const target = document.getElementById('download');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="landing-container">
       <div className="landing-content">
-        {/* ---------------- HERO ---------------- */}
+        
+        {/* ---------------- HERO Section ---------------- */}
         <section className="hero">
-          <Link to="/">
-            <span className="brand">SMART GROCERY</span>
-          </Link>
+          <div className="hero-bg-decoration"></div>
 
-          <h1 className="hero-title">
-            Organize. Track. Understand.
-          </h1>
+          <div className="hero-grid">
+            {/* LEFT CONTENT */}
+            <div className="hero-copy">
+              <Link to="/" className="brand-link">
+                <span className="brand">SMART GROCERY</span>
+              </Link>
 
-          <p className="hero-subtitle">
-            Smarter grocery planning with intelligent history tracking
-            and spending insights.
-          </p>
+              <div className="hero-line"></div>
 
-          {/* 🔥 INSTALL BUTTONS */}
-          <div className="install-buttons">
-            <a
-              href="https://play.google.com/store/apps/details?id=your.app.id"
-              className="install-icon-btn"
-              title="Download for Android"
-            >
-              📱
-            </a>
+              <h1 className="hero-title">
+                Organize.
+                <br />
+                Track.
+                <br />
+                Understand.
+              </h1>
 
-            <a
-              href="https://apps.apple.com/app/idXXXXXXXX"
-              className="install-icon-btn"
-              title="Download for iOS"
-            >
-              🍎
-            </a>
+              <p className="hero-subtitle">
+                Practical grocery planning that helps households stay organized,
+                track spending patterns, and shop smarter over time.
+              </p>
+
+              <div className="hero-cta-row">
+                <a href="#download" className="primary-btn-large" onClick={handleDownloadClick}>
+                  Download App
+                </a>
+
+                <a href="#features" className="secondary-btn">
+                  Explore Features
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT VISUAL */}
+            <div className="hero-preview">
+              <div className="hero-preview-card">
+                <div className="hero-logo-circle">
+                  <img
+                    src={landingBg}
+                    alt="Smart Grocery"
+                    className="hero-screenshot"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* ---------------- VALUE STRIP ---------------- */}
-        <section className="value-strip">
-          <ValueItem text="Offline Ready" />
-          <ValueItem text="Smart Insights" />
-          <ValueItem text="History Tracking" />
-          <ValueItem text="Seasonal Suggestions" />
+        <section className="value-strip" id="features">
+          <ValueItem text="Offline First" />
+          <ValueItem text="Private & Secure" />
+          <ValueItem text="Built for Real Shopping Habits" />
+          <ValueItem text="Clear history" />
+          <ValueItem text="Lightweight design" />
         </section>
 
         {/* ---------------- CORE BENEFITS ---------------- */}
         <section className="section">
-          <h2 className="section-title">Built for Smarter Households</h2>
-          <div className="section-subBenefit">  
+          <h2 className="section-title">Why households trust Smart Grocery</h2>
+
+          <div className="benefits-grid">
             <Benefit
               icon={<IoCartOutline />}
-              title="Smart Lists"
-              desc="Create and manage grocery lists in seconds."
+              title="Practical grocery lists"
+              desc="Create and manage your shopping list with simple categories and quantities."
             />
 
             <Benefit
               icon={<IoTimeOutline />}
-              title="Automatic History"
-              desc="Track sessions and spending automatically."
+              title="Organized session history"
+              desc="Keep track of past shopping trips so you can repeat what works best."
             />
 
             <Benefit
               icon={<IoAnalyticsOutline />}
-              title="Intelligent Insights"
-              desc="Understand trends and optimize your shopping."
+              title="Easy spending insights"
+              desc="View practical spend summaries and category breakdowns for better planning."
             />
           </div>
         </section>
 
         {/* ---------------- INTELLIGENCE ---------------- */}
         <section className="intelligence-section">
-          <h2 className="section-title">
-            Understand Your Spending
-          </h2>
+          <h2 className="section-title">Understand your spending at a glance</h2>
 
           <div className="intelligence-grid">
             <div className="intelligence-card">
               <span className="intelligence-icon">📊</span>
-              <h3 className="intelligence-title">Monthly spending comparisons</h3>
-              <p className="intelligence-desc">Track how your spending changes month over month</p>
+              <h3 className="intelligence-title">Monthly spend view</h3>
+              <p className="intelligence-desc">Compare this month to last month with simple spend summaries.</p>
             </div>
 
             <div className="intelligence-card">
-              <span className="intelligence-icon">🏆</span>
-              <h3 className="intelligence-title">Most consistent purchases</h3>
-              <p className="intelligence-desc">Identify items you buy regularly</p>
+              <span className="intelligence-icon">🛒</span>
+              <h3 className="intelligence-title">Frequent buys</h3>
+              <p className="intelligence-desc">Spot the items you buy often so you can shop more efficiently.</p>
             </div>
 
             <div className="intelligence-card">
-              <span className="intelligence-icon">📈</span>
-              <h3 className="intelligence-title">Category dominance insights</h3>
-              <p className="intelligence-desc">See which categories take most of your budget</p>
+              <span className="intelligence-icon">💰</span>
+              <h3 className="intelligence-title">Budget categories</h3>
+              <p className="intelligence-desc">See which categories take most of your grocery budget.</p>
             </div>
 
             <div className="intelligence-card">
-              <span className="intelligence-icon">🔄</span>
-              <h3 className="intelligence-title">Shopping pattern detection</h3>
-              <p className="intelligence-desc">Discover your shopping habits and routines</p>
+              <span className="intelligence-icon">✅</span>
+              <h3 className="intelligence-title">Better routines</h3>
+              <p className="intelligence-desc">Use your grocery history to build a more organized shopping routine.</p>
             </div>
           </div>
         </section>
@@ -134,50 +165,42 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* App Images */}
+        <section className="app-images-section">
+          <h2 className="section-title">App Preview</h2>
+          <div className="app-images-grid">
+            <img src={screen1} alt="App Screenshot 1" className="app-screenshot" />
+            <img src={screen2} alt="App Screenshot 2" className="app-screenshot" />
+            <img src={screen3} alt="App Screenshot 3" className="app-screenshot" />
+            {/* <img src={screen4} alt="App Screenshot 4" className="app-screenshot" /> */}
+          </div>
+        </section>
+
         {/* ---------------- FINAL CTA ---------------- */}
-        <section className="final-cta-section">
+        <section className="final-cta-section" id="download">
           <div className="cta-grid">
             <div className="cta-card">
               <h3 className="cta-title">Start organizing smarter today.</h3>
               <div className="cta-buttons">
                 <a
-                  href="https://play.google.com/store/apps/details?id=your.app.id"
+                  href="#"
                   className="cta-store-btn"
                 >
-                  📱 Get it on Android
+                  <icon className="cta-icon"><FaGooglePlay /></icon> Get it on Android
                 </a>
                 <a
-                  href="https://apps.apple.com/app/idXXXXXXXX"
+                  href="#"
                   className="cta-store-btn"
-                  style={{ backgroundColor: "#000" }}
                 >
-                  🍎 Get it on iOS
+                  <icon className="cta-icon"><FaApple /></icon> Coming Soon on iOS
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ---------------- FOOTER ---------------- */}
-        <footer className="footer-section">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <img src={logo} alt="Smart Grocery Logo" className="footer-logo" />
-              <Link to="/">
-                <span className="brand">SMART GROCERY</span>
-              </Link>
-              <p className="footer-tagline">Organized households. Smarter decisions.</p>
-            </div>
-            <div className="footer-links">
-              <a href="/privacy">Privacy Policy</a>
-              <a href="/terms">Terms</a>
-            </div>
-            <div className="footer-info">
-              <p className="footer-version">Smart Grocery v1.2.0</p>
-              <p className="footer-copyright">© 2026 All rights reserved</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
+
       </div>
     </div>
   );
