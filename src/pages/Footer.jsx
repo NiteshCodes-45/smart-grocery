@@ -18,6 +18,7 @@ export default function Footer() {
             <div className="footer-links">
                 <a href="/privacy">Privacy Policy</a>
                 <a href="/terms">Terms</a>
+                <a href="/faqs">FAQs</a>
                 <a href="/delete-account">Delete Account</a>
                 <a href="/contact">Contact</a>
             </div>

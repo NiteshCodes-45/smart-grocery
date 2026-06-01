@@ -14,7 +14,7 @@ export default function DeleteAccount() {
           <h1 className="page-title">Delete Account</h1>
 
           <p>
-            Smart Grocery allows users to permanently delete their account and associated data.
+            Smart Grocery allows users to permanently delete their account and associated data directly from the app Settings.
           </p>
 
           <h2>What gets deleted?</h2>
@@ -25,22 +25,23 @@ export default function DeleteAccount() {
             <li>Preferences and settings</li>
           </ul>
 
-          <h2>How to request deletion?</h2>
+          <h2>How to delete your account?</h2>
+          <ol style={styles['info-list']}>
+            <li><strong>Log in</strong> to the Smart Grocery app with your credentials</li>
+            <li>Go to <strong>Settings</strong> and select <strong>"Delete Account"</strong></li>
+            <li>Read the caution message warning that deletion is <strong>permanent and cannot be undone</strong></li>
+            <li>For security, you will be <strong>automatically logged out</strong></li>
+            <li><strong>Log in again</strong> with the same credentials to confirm the deletion</li>
+            <li>Your account and all associated data will be immediately deleted</li>
+          </ol>
+
+          <h2>Why re-login for confirmation?</h2>
           <p>
-            Send an email to: <strong><a href="mailto:hello@niteshchaughule.dev">hello@niteshchaughule.dev</a></strong>
+            The logout and re-login step is a security measure to ensure that only the actual account owner can permanently delete the account. This prevents accidental or unauthorized deletion.
           </p>
 
-          <p>
-            Include your registered email address in the request.
-          </p>
-
-          <h2>Deletion timeline</h2>
-          <p>
-            Account deletion requests are processed within 7 business days.
-          </p>
-
-          <p>
-            Some temporary backup data may remain for a limited period for security and recovery purposes.
+          <p style={styles['caution']}>
+            ⚠️ <strong>Important:</strong> Account deletion is irreversible. Please be certain before proceeding.
           </p>
         </div>
       </div>
@@ -61,5 +62,13 @@ const styles = {
     listStyleType: "none",
     paddingLeft: 20,
   },
+  'caution': {
+    backgroundColor: 'rgba(255, 183, 77, 0.1)',
+    border: '1px solid rgba(255, 183, 77, 0.3)',
+    borderRadius: '8px',
+    padding: '14px 16px',
+    marginTop: '20px',
+    color: '#c9720d',
+  }
 };
             

@@ -69,7 +69,7 @@ export default function PrivacyPolicy() {
 
       <h3>7. Contact</h3>
       <p>
-        For any questions, contact: <a href="mailto:hello@niteshchaughule.dev">hello@niteshchaughule.dev</a>
+        For any questions, contact: <a href="mailto:contact.smartgrocery@gmail.com">contact.smartgrocery@gmail.com</a>
       </p>
 
       <Footer />

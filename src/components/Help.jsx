@@ -15,7 +15,7 @@ const Help = () => {
         <h3>Clearing Data</h3>
         <p>If you want to start fresh, you can use the "Clear All Data" option in the settings menu to remove all items from your list.</p>
         <h3>Need More Help?</h3>
-        <p>If you have any questions or need further assistance, feel free to reach out to our support team at <a href="mailto:hello@niteshchaughule.dev">hello@niteshchaughule.dev</a>.</p>
+        <p>If you have any questions or need further assistance, feel free to reach out to our support team at <a href="mailto:contact.smartgrocery@gmail.com">contact.smartgrocery@gmail.com</a>.</p>
     </div>
   );
 }

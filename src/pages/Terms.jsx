@@ -58,7 +58,7 @@ export default function Terms() {
 
         <h3>9. Contact</h3>
         <p>
-          Contact: <a href="mailto:hello@niteshchaughule.dev">hello@niteshchaughule.dev</a>
+          Contact: <a href="mailto:contact.smartgrocery@gmail.com">contact.smartgrocery@gmail.com</a>
         </p>
       </div>
       <Footer />

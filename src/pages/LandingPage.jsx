@@ -1,8 +1,8 @@
-import React from 'react';
-import screen1 from "../assets/app-screenshots/smart-grocery-1.jpg";
-import screen2 from "../assets/app-screenshots/smart-grocery-2.jpg";
-import screen3 from "../assets/app-screenshots/smart-grocery-3.jpg";
-//import screen4 from "../assets/app-screenshots/smart-grocery-4.jpg";
+import React, { useEffect, useState, useRef } from 'react';
+import screen1 from "../assets/app-screenshots/smart-grocery-1.png";
+import screen2 from "../assets/app-screenshots/smart-grocery-2.png";
+import screen3 from "../assets/app-screenshots/smart-grocery-3.png";
+import screen4 from "../assets/app-screenshots/smart-grocery-4.png";
 import landingBg from "../assets/app-screenshots/landing.png";
 import { IoCheckmarkCircleOutline, IoCartOutline, IoTimeOutline, IoAnalyticsOutline } from 'react-icons/io5';
 import "./LandingPage.css";
@@ -11,7 +11,39 @@ import Footer from "./Footer";
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
 
 export default function LandingPage() {
-  
+  const carouselImages = [screen1, screen2, screen3, screen4];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 10000); // Change slide every 10 seconds
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
+  const handleTouchStart = (event) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event) => {
+    if (touchStartX.current === null) return;
+
+    const touchEndX = event.changedTouches[0].clientX;
+    const deltaX = touchStartX.current - touchEndX;
+
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+      } else {
+        setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+      }
+    }
+
+    touchStartX.current = null;
+  };
+
   return (
     <div className="landing-container">
       <div className="landing-content">
@@ -161,11 +193,37 @@ export default function LandingPage() {
         {/* App Images */}
         <section className="app-images-section">
           <h2 className="section-title">App Preview</h2>
-          <div className="app-images-grid">
-            <img src={screen1} alt="App Screenshot 1" className="app-screenshot" />
-            <img src={screen2} alt="App Screenshot 2" className="app-screenshot" />
-            <img src={screen3} alt="App Screenshot 3" className="app-screenshot" />
-            {/* <img src={screen4} alt="App Screenshot 4" className="app-screenshot" /> */}
+          <div className="app-images-carousel">
+            <button className="carousel-nav prev" onClick={() => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)} aria-label="Previous screenshot">
+              ‹
+            </button>
+
+            <div
+              className="carousel-track"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              <img
+                src={carouselImages[currentSlide]}
+                alt={`App screenshot ${currentSlide + 1}`}
+                className="app-screenshot"
+              />
+              <div className="carousel-caption">Slide {currentSlide + 1} of {carouselImages.length}</div>
+            </div>
+
+            <button className="carousel-nav next" onClick={() => setCurrentSlide((prev) => (prev + 1) % carouselImages.length)} aria-label="Next screenshot">
+              ›
+            </button>
+          </div>
+          <div className="carousel-dots">
+            {carouselImages.map((_, idx) => (
+              <button
+                key={idx}
+                className={`carousel-dot ${idx === currentSlide ? 'active' : ''}`}
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
           </div>
         </section>
 
