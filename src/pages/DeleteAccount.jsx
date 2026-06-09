@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./LandingPage.css";
+import Header from "./Header";
 import Footer from "./Footer";
 
 export default function DeleteAccount() {
@@ -8,9 +9,7 @@ export default function DeleteAccount() {
     <>
       <div className="container">
         <div className="landing-content">
-          <Link to="/" className="brand-link">
-            <span className="brand">SMART GROCERY</span>
-          </Link>
+          <Header />
           <h1 className="page-title">Delete Account</h1>
 
           <p>

@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./LandingPage.css";
+import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Terms() {
   return (
     <>
       <div style={styles.container}>
-        <Link to="/" className="brand-link">
-          <span className="brand">SMART GROCERY</span>
-        </Link>
+        <Header />
         <h1 className="page-title">Terms & Conditions</h1>
 
         <p>

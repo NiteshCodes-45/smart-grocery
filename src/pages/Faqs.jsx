@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./LandingPage.css";
+import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Faqs() {
@@ -42,9 +43,7 @@ export default function Faqs() {
   return (
     <div className="landing-container">
       <div className="landing-content">
-        <Link to="/" className="brand-link">
-            <span className="brand">SMART GROCERY</span>
-        </Link>
+        <Header />
         <section className="faq-section">
             <h1 className="page-title">Frequently Asked Questions</h1>
 

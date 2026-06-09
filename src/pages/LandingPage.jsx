@@ -9,6 +9,7 @@ import "./LandingPage.css";
 import { Link } from 'react-router-dom';
 import Footer from "./Footer";
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
+import HeroHeader from './Header';
 
 export default function LandingPage() {
   const carouselImages = [screen1, screen2, screen3, screen4];
@@ -47,20 +48,15 @@ export default function LandingPage() {
   return (
     <div className="landing-container">
       <div className="landing-content">
-        
         {/* ---------------- HERO Section ---------------- */}
         <section className="hero">
           <div className="hero-bg-decoration"></div>
 
+          <HeroHeader />
+
           <div className="hero-grid">
             {/* LEFT CONTENT */}
             <div className="hero-copy">
-              <Link to="/" className="brand-link">
-                <span className="brand">SMART GROCERY</span>
-              </Link>
-
-              <div className="hero-line"></div>
-
               <h1 className="hero-title">
                 Organize.
                 <br />
@@ -136,31 +132,42 @@ export default function LandingPage() {
 
         {/* ---------------- INTELLIGENCE ---------------- */}
         <section className="intelligence-section">
-          <h2 className="section-title">Understand your spending at a glance</h2>
+          <h2 className="section-title">
+            Understand your spending at a glance
+          </h2>
 
           <div className="intelligence-grid">
             <div className="intelligence-card">
               <span className="intelligence-icon">📊</span>
               <h3 className="intelligence-title">Monthly spend view</h3>
-              <p className="intelligence-desc">Compare this month to last month with simple spend summaries.</p>
+              <p className="intelligence-desc">
+                Compare this month to last month with simple spend summaries.
+              </p>
             </div>
 
             <div className="intelligence-card">
               <span className="intelligence-icon">🛒</span>
               <h3 className="intelligence-title">Frequent buys</h3>
-              <p className="intelligence-desc">Spot the items you buy often so you can shop more efficiently.</p>
+              <p className="intelligence-desc">
+                Spot the items you buy often so you can shop more efficiently.
+              </p>
             </div>
 
             <div className="intelligence-card">
               <span className="intelligence-icon">💰</span>
               <h3 className="intelligence-title">Budget categories</h3>
-              <p className="intelligence-desc">See which categories take most of your grocery budget.</p>
+              <p className="intelligence-desc">
+                See which categories take most of your grocery budget.
+              </p>
             </div>
 
             <div className="intelligence-card">
               <span className="intelligence-icon">✅</span>
               <h3 className="intelligence-title">Better routines</h3>
-              <p className="intelligence-desc">Use your grocery history to build a more organized shopping routine.</p>
+              <p className="intelligence-desc">
+                Use your grocery history to build a more organized shopping
+                routine.
+              </p>
             </div>
           </div>
         </section>
@@ -173,19 +180,27 @@ export default function LandingPage() {
             <div className="step-card">
               <div className="step-number-large">1</div>
               <h3 className="step-title">Login securely</h3>
-              <p className="step-desc">Sign in with your account to access your personalized grocery dashboard</p>
+              <p className="step-desc">
+                Sign in with your account to access your personalized grocery
+                dashboard
+              </p>
             </div>
 
             <div className="step-card">
               <div className="step-number-large">2</div>
               <h3 className="step-title">Create your grocery list</h3>
-              <p className="step-desc">Add items you need with categories and quantities for easy shopping</p>
+              <p className="step-desc">
+                Add items you need with categories and quantities for easy
+                shopping
+              </p>
             </div>
 
             <div className="step-card">
               <div className="step-number-large">3</div>
               <h3 className="step-title">Track and analyze purchases</h3>
-              <p className="step-desc">View spending history and get insights to optimize your budget</p>
+              <p className="step-desc">
+                View spending history and get insights to optimize your budget
+              </p>
             </div>
           </div>
         </section>
@@ -194,7 +209,16 @@ export default function LandingPage() {
         <section className="app-images-section">
           <h2 className="section-title">App Preview</h2>
           <div className="app-images-carousel">
-            <button className="carousel-nav prev" onClick={() => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)} aria-label="Previous screenshot">
+            <button
+              className="carousel-nav prev"
+              onClick={() =>
+                setCurrentSlide(
+                  (prev) =>
+                    (prev - 1 + carouselImages.length) % carouselImages.length,
+                )
+              }
+              aria-label="Previous screenshot"
+            >
               ‹
             </button>
 
@@ -208,10 +232,18 @@ export default function LandingPage() {
                 alt={`App screenshot ${currentSlide + 1}`}
                 className="app-screenshot"
               />
-              <div className="carousel-caption">Slide {currentSlide + 1} of {carouselImages.length}</div>
+              <div className="carousel-caption">
+                Slide {currentSlide + 1} of {carouselImages.length}
+              </div>
             </div>
 
-            <button className="carousel-nav next" onClick={() => setCurrentSlide((prev) => (prev + 1) % carouselImages.length)} aria-label="Next screenshot">
+            <button
+              className="carousel-nav next"
+              onClick={() =>
+                setCurrentSlide((prev) => (prev + 1) % carouselImages.length)
+              }
+              aria-label="Next screenshot"
+            >
               ›
             </button>
           </div>
@@ -219,7 +251,7 @@ export default function LandingPage() {
             {carouselImages.map((_, idx) => (
               <button
                 key={idx}
-                className={`carousel-dot ${idx === currentSlide ? 'active' : ''}`}
+                className={`carousel-dot ${idx === currentSlide ? "active" : ""}`}
                 onClick={() => setCurrentSlide(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -233,17 +265,17 @@ export default function LandingPage() {
             <div className="cta-card">
               <h3 className="cta-title">Start organizing smarter today.</h3>
               <div className="cta-buttons">
-                <a
-                  href="#"
-                  className="cta-store-btn"
-                >
-                  <icon className="cta-icon"><FaGooglePlay /></icon> Get it on Android
+                <a href="#" className="cta-store-btn">
+                  <icon className="cta-icon">
+                    <FaGooglePlay />
+                  </icon>{" "}
+                  Get it on Android
                 </a>
-                <a
-                  href="#"
-                  className="cta-store-btn"
-                >
-                  <icon className="cta-icon"><FaApple /></icon> Coming Soon on iOS
+                <a href="#" className="cta-store-btn">
+                  <icon className="cta-icon">
+                    <FaApple />
+                  </icon>{" "}
+                  Coming Soon on iOS
                 </a>
               </div>
             </div>
@@ -251,7 +283,6 @@ export default function LandingPage() {
         </section>
 
         <Footer />
-
       </div>
     </div>
   );

@@ -134,7 +134,7 @@ html {
   height: 3px;
   border-radius: 10px;
   background-color: #5ca97b;
-  margin: 10px 0 28px;
+  margin: 10px 0 5px;
 }
 
 .hero-title {
@@ -305,8 +305,12 @@ html {
 }
 
 @media (max-width: 640px) {
+  .hero-header {
+    gap: 6px;
+  }
+  
   .hero {
-    padding: 50px 20px;
+    padding: 20px;
   }
 
   .hero-title {
@@ -852,7 +856,7 @@ html {
 .carousel-dot {
   width: 14px;
   height: 14px;
-  border-radius: 50%;
+  border-radius: 10%;
   border: none;
   background: rgba(47, 111, 78, 0.25);
   cursor: pointer;
@@ -938,6 +942,7 @@ html {
   color: #3f5b47;
   line-height: 1.6;
 }
+
 
 @media (max-width: 720px) {
   .faq-list {

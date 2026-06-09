@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./LandingPage.css";
+import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Contact() {
@@ -8,9 +9,7 @@ export default function Contact() {
     <>
       <div style={styles.container}>
         <div className="landing-content">
-          <Link to="/" className="brand-link">
-            <span className="brand">SMART GROCERY</span>
-          </Link>
+          <Header />
           <h1 className="page-title">Contact</h1>
 
           <p>
@@ -35,7 +34,6 @@ const styles = {
   'container': {
     maxWidth: 800,
     margin: "0 auto",
-    padding: 20,
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     lineHeight: 1.6,
   },

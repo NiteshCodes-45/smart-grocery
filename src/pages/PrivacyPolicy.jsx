@@ -2,14 +2,13 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./LandingPage.css";
+import Header from "./Header";
 import Footer from "./Footer";
 
 export default function PrivacyPolicy() {
   return (
     <div style={styles.container}>
-      <Link to="/" className="brand-link">
-        <span className="brand">SMART GROCERY</span>
-      </Link>
+      <Header />
       <h1 className="page-title">Privacy Policy</h1>
 
       <p>
