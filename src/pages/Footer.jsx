@@ -20,7 +20,7 @@ export default function Footer() {
                 <a href="/terms">Terms</a>
                 <a href="/faqs">FAQs</a>
                 <a href="/delete-account">Delete Account</a>
-                <a href="/contact">Contact</a>
+                <a href="/contact">Contact Us</a>
             </div>
         </div>
         <div className="footer-info">

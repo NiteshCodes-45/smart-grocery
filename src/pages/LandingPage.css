@@ -568,6 +568,9 @@ html {
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
   }
 
   .hero-preview {
