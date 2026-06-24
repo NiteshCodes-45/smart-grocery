@@ -19,6 +19,7 @@ export default function App() {
         <Route path="/delete-account" element={<DeleteAccount />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faqs" element={<Faqs />} />
+        {/* <Route path="/admin" elemtent={<AdminPage />} /> */}
         <Route path="*" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>

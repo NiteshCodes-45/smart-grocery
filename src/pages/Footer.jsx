@@ -1,5 +1,6 @@
 import logo from "../assets/logo.png";
 import { Link } from 'react-router-dom';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import "./LandingPage.css";
 
 export default function Footer() {
@@ -21,6 +22,27 @@ export default function Footer() {
                 <a href="/faqs">FAQs</a>
                 <a href="/delete-account">Delete Account</a>
                 <a href="/contact">Contact Us</a>
+            </div>
+            <div className="footer-social">
+                <p>Follow us on</p>
+                <div className="footer-social-links">
+                    <a
+                        href="https://www.instagram.com/smartgroceryofficial"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Follow Smart Grocery on Instagram"
+                    >
+                        <FaInstagram />
+                    </a>
+                    <a
+                        href="https://www.facebook.com/smartgroceryofficialapp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Follow Smart Grocery on Facebook"
+                    >
+                        <FaFacebookF />
+                    </a>
+                </div>
             </div>
         </div>
         <div className="footer-info">
