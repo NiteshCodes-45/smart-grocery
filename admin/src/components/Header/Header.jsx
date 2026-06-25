@@ -2,6 +2,7 @@ import {
   AppBar,
   Avatar,
   Box,
+  Chip,
   IconButton,
   Stack,
   Toolbar,
@@ -11,7 +12,20 @@ import {
 import { LogOut, Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 
 import { APP_NAME } from '@/constants/app';
+import { environment } from '@/config/env';
 import { authService } from '@/services/authService';
+
+const environmentLabel = {
+  development: 'Development',
+  staging: 'Staging',
+  production: 'Production',
+};
+
+const environmentColor = {
+  development: 'info',
+  staging: 'warning',
+  production: 'success',
+};
 
 export function Header({ admin, collapsed, isMobile, onSidebarToggle }) {
   const handleSignOut = async () => {
@@ -46,6 +60,13 @@ export function Header({ admin, collapsed, isMobile, onSidebarToggle }) {
         </Box>
 
         <Stack alignItems="center" direction="row" spacing={1.25}>
+          <Chip
+            color={environmentColor[environment] ?? 'default'}
+            label={environmentLabel[environment] ?? environment}
+            size="small"
+            sx={{ display: { xs: 'none', sm: 'inline-flex' }, fontWeight: 700 }}
+            variant="outlined"
+          />
           <Avatar sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', height: 34, width: 34 }}>
             {admin?.email?.charAt(0).toUpperCase() ?? 'A'}
           </Avatar>

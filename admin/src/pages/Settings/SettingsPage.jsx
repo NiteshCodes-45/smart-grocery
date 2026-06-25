@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { appVersion, environment } from '@/config/env';
 import { INITIAL_SETTINGS } from '@/constants/app';
 
 const settingsSchema = z.object({
@@ -57,6 +58,7 @@ export function SettingsPage() {
                 fullWidth
                 helperText={errors.currentVersion?.message}
                 label="Current Version"
+                InputProps={{ readOnly: true }}
                 {...register('currentVersion')}
               />
               <TextField
@@ -77,6 +79,9 @@ export function SettingsPage() {
                   Save Settings
                 </Button>
               </Box>
+              <Typography color="text.secondary" variant="caption">
+                Admin version {appVersion} · {environment}
+              </Typography>
             </Stack>
           </Box>
         </CardContent>

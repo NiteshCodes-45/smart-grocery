@@ -1,5 +1,7 @@
-export const APP_NAME = 'Smart Grocery Admin';
-export const APP_VERSION = '1.2.0';
+import { appName, appVersion } from '@/config/env';
+
+export const APP_NAME = appName;
+export const APP_VERSION = appVersion;
 
 export const SIDEBAR_ITEMS = [
   { label: 'Dashboard', path: '/dashboard', iconName: 'dashboard' },
