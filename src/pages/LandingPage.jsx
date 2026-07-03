@@ -3,6 +3,8 @@ import screen1 from "../assets/app-screenshots/smart-grocery-1.png";
 import screen2 from "../assets/app-screenshots/smart-grocery-2.png";
 import screen3 from "../assets/app-screenshots/smart-grocery-3.png";
 import screen4 from "../assets/app-screenshots/smart-grocery-4.png";
+import screen5 from "../assets/app-screenshots/smart-grocery-5.png";
+import screen6 from "../assets/app-screenshots/smart-grocery-6.png";
 import landingBg from "../assets/app-screenshots/landing.png";
 import { IoCheckmarkCircleOutline, IoCartOutline, IoTimeOutline, IoAnalyticsOutline } from 'react-icons/io5';
 import "./LandingPage.css";
@@ -12,7 +14,7 @@ import { FaGooglePlay, FaApple } from 'react-icons/fa';
 import HeroHeader from './Header';
 
 export default function LandingPage() {
-  const carouselImages = [screen1, screen2, screen3, screen4];
+  const carouselImages = [screen1, screen2, screen3, screen4, screen5, screen6];
   const [currentSlide, setCurrentSlide] = useState(0);
   const touchStartX = useRef(null);
 
@@ -207,55 +209,62 @@ export default function LandingPage() {
 
         {/* App Images */}
         <section className="app-images-section">
-          <h2 className="section-title">App Preview</h2>
-          <div className="app-images-carousel">
-            <button
-              className="carousel-nav prev"
-              onClick={() =>
-                setCurrentSlide(
-                  (prev) =>
-                    (prev - 1 + carouselImages.length) % carouselImages.length,
-                )
-              }
-              aria-label="Previous screenshot"
-            >
-              ‹
-            </button>
+          <div className="section-heading-row">
+            <div>
+              <h2 className="section-title">App Preview</h2>
+              <p className="section-subtitle">
+                A compact preview of the Smart Grocery interface that keeps the full screen visible.
+              </p>
+            </div>
+          </div>
 
-            <div
-              className="carousel-track"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              <img
-                src={carouselImages[currentSlide]}
-                alt={`App screenshot ${currentSlide + 1}`}
-                className="app-screenshot"
-              />
-              <div className="carousel-caption">
-                Slide {currentSlide + 1} of {carouselImages.length}
+          <div className="app-images-carousel">
+            <div className="preview-card">
+              <div className="phone-shell">
+                <div className="phone-speaker" />
+                <div className="carousel-frame" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+                  <img
+                    src={carouselImages[currentSlide]}
+                    alt={`App screenshot ${currentSlide + 1}`}
+                    className="app-screenshot"
+                  />
+                </div>
               </div>
             </div>
 
-            <button
-              className="carousel-nav next"
-              onClick={() =>
-                setCurrentSlide((prev) => (prev + 1) % carouselImages.length)
-              }
-              aria-label="Next screenshot"
-            >
-              ›
-            </button>
-          </div>
-          <div className="carousel-dots">
-            {carouselImages.map((_, idx) => (
+            <div className="carousel-controls">
               <button
-                key={idx}
-                className={`carousel-dot ${idx === currentSlide ? "active" : ""}`}
-                onClick={() => setCurrentSlide(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
+                className="carousel-nav prev"
+                onClick={() =>
+                  setCurrentSlide(
+                    (prev) =>
+                      (prev - 1 + carouselImages.length) % carouselImages.length,
+                  )
+                }
+                aria-label="Previous screenshot"
+              >
+                ‹
+              </button>
+              <div className="carousel-dots">
+                {carouselImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`carousel-dot ${idx === currentSlide ? "active" : ""}`}
+                    onClick={() => setCurrentSlide(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                className="carousel-nav next"
+                onClick={() =>
+                  setCurrentSlide((prev) => (prev + 1) % carouselImages.length)
+                }
+                aria-label="Next screenshot"
+              >
+                ›
+              </button>
+            </div>
           </div>
         </section>
 

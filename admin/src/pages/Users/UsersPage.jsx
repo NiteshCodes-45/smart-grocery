@@ -49,6 +49,8 @@ export function UsersPage() {
     );
   }, [searchTerm, users]);
 
+  console.log('Filtered Users:', filteredUsers); // Debugging line
+
   return (
     <Stack spacing={3}>
       <Stack
