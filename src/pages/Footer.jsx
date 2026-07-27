@@ -1,55 +1,60 @@
 import logo from "../assets/logo.png";
-import { Link } from 'react-router-dom';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import "./LandingPage.css";
+import company from "../../company.json";
+
+const socialIcons = {
+  facebook: <FaFacebookF />,
+  instagram: <FaInstagram />,
+};
 
 export default function Footer() {
   return (
-    <>
-    {/* ---------------- FOOTER ---------------- */}
     <footer className="footer-section">
-        <div className="footer-grid">
-            <div className="footer-brand">
-                <img src={logo} alt="Smart Grocery Logo" className="footer-logo" />
-                <Link to="/">
-                    <span className="brand">SMART GROCERY</span>
-                </Link>
-                <p className="footer-tagline">Organized households. Smarter decisions.</p>
-            </div>
-            <div className="footer-links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms</a>
-                <a href="/faqs">FAQs</a>
-                <a href="/delete-account">Delete Account</a>
-                <a href="/contact">Contact Us</a>
-            </div>
-            <div className="footer-social">
-                <p>Follow us on</p>
-                <div className="footer-social-links">
-                    <a
-                        href="https://www.instagram.com/smartgroceryofficial"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Follow Smart Grocery on Instagram"
-                    >
-                        <FaInstagram />
-                    </a>
-                    <a
-                        href="https://www.facebook.com/smartgroceryofficialapp"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Follow Smart Grocery on Facebook"
-                    >
-                        <FaFacebookF />
-                    </a>
-                </div>
-            </div>
+      <div className="footer-grid">
+        <div className="footer-brand">
+          <img src={logo} alt={`${company.productName} Logo`} className="footer-logo" />
+          <Link to="/">
+            <span className="brand">{company.productName}</span>
+          </Link>
         </div>
-        <div className="footer-info">
-            <p className="footer-version">Smart Grocery v1.2.0</p>
-            <p className="footer-copyright">© 2026 All rights reserved</p>
+
+        <div className="footer-links">
+          <a href={company.website} target="_blank" rel="noopener noreferrer">
+            {company.companyName}
+          </a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/terms">Terms</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/faqs">FAQs</Link>
+          <Link to="/delete-account">Delete Account</Link>
         </div>
-        </footer>
-    </>
-    );
+
+        <div className="footer-social">
+          <p>Follow us on</p>
+          <div className="footer-social-links">
+            {company.socialLinks.map((social) => (
+              <a
+                key={social.platform}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Follow ${company.productName} on ${social.label}`}
+              >
+                {socialIcons[social.platform]}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-info">
+        <p className="footer-copyright">{company.copyright}</p>
+        <p className="footer-tagline">
+          {company.productName} is a product developed and maintained by {company.companyName}.
+        </p>
+      </div>
+    </footer>
+  );
 }

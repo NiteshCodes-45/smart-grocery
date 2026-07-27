@@ -1,9 +1,9 @@
 
 import React from "react";
-import { Link } from 'react-router-dom';
 import "./LandingPage.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import company from "../../company.json";
 
 export default function PrivacyPolicy() {
   return (
@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       <h1 className="page-title">Privacy Policy</h1>
 
       <p>
-        Smart Grocery respects your privacy and focuses on keeping your grocery data practical, organized, and secure. This policy explains how we handle your information.
+        {company.productName} respects your privacy and focuses on keeping your grocery data practical, organized, and secure. This policy explains how we handle your information.
       </p>
 
       <h3>1. Information We Collect</h3>
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
 
       <h3>Data Storage</h3>
       <p>
-        Smart Grocery stores grocery-related information securely using local device storage and cloud services where applicable.
+        {company.productName} stores grocery-related information securely using local device storage and cloud services where applicable.
       </p>
 
       <h3>2. How We Use Data</h3>
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
 
       <h3>Third-Party Services</h3>
       <p>
-        Smart Grocery may use Firebase services such as Authentication and Firestore to provide secure login and data synchronization features.
+        {company.productName} may use Firebase services such as Authentication and Firestore to provide secure login and data synchronization features.
       </p>
 
       <h3>Offline Usage</h3>
@@ -68,7 +68,7 @@ export default function PrivacyPolicy() {
 
       <h3>7. Contact</h3>
       <p>
-        For any questions, contact: <a href="mailto:contact.smartgrocery@gmail.com">contact.smartgrocery@gmail.com</a>
+        For any questions, contact: <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
       </p>
 
       <Footer />

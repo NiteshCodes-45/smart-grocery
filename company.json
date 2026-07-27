@@ -1,0 +1,26 @@
+{
+  "companyName": "NitCrafted",
+  "website": "https://nitcrafted.com",
+  "supportEmail": "support@nitcrafted.com",
+  "copyright": "© 2026 NitCrafted. All rights reserved.",
+  "socialLinks": [
+    {
+      "label": "Instagram",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/smartgroceryofficial"
+    },
+    {
+      "label": "Facebook",
+      "platform": "facebook",
+      "url": "https://www.facebook.com/smartgroceryofficialapp"
+    }
+  ],
+  "productName": "Smart Grocery",
+  "productVersion": "1.2.0",
+  "seo": {
+    "organization": "NitCrafted",
+    "application": "Smart Grocery",
+    "author": "NitCrafted",
+    "openGraphTitle": "Smart Grocery by NitCrafted"
+  }
+}

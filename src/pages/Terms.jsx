@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import "./LandingPage.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import company from "../../company.json";
 
 export default function Terms() {
   return (
@@ -12,7 +12,7 @@ export default function Terms() {
         <h1 className="page-title">Terms & Conditions</h1>
 
         <p>
-          By using Smart Grocery, you agree to the following terms.
+          By using {company.productName}, you agree to the following terms.
         </p>
 
         <h3>1. Usage</h3>
@@ -22,7 +22,7 @@ export default function Terms() {
 
         <h3>2. Accuracy</h3>
         <p>
-          Smart Grocery aims to provide useful grocery guidance, but we do not guarantee the accuracy of detected items or suggested shopping details.
+          {company.productName} aims to provide useful grocery guidance, but we do not guarantee the accuracy of detected items or suggested shopping details.
         </p>
 
         <h3>3. Scan features</h3>
@@ -37,7 +37,7 @@ export default function Terms() {
 
         <h3>5. App Availability</h3>
         <p>
-          Smart Grocery may be updated, modified, or temporarily unavailable during maintenance or technical issues.
+          {company.productName} may be updated, modified, or temporarily unavailable during maintenance or technical issues.
         </p>
 
         <h3>6. Acceptable Usage</h3>
@@ -52,12 +52,12 @@ export default function Terms() {
 
         <h3>8. Limitation of Liability</h3>
         <p>
-          Smart Grocery is provided as-is without guarantees of uninterrupted availability or error-free operation.
+          {company.productName} is provided as-is without guarantees of uninterrupted availability or error-free operation.
         </p>
 
         <h3>9. Contact</h3>
         <p>
-          Contact: <a href="mailto:contact.smartgrocery@gmail.com">contact.smartgrocery@gmail.com</a>
+          Contact: <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
         </p>
       </div>
       <Footer />

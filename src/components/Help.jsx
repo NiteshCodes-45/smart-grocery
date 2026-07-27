@@ -1,8 +1,10 @@
+import company from "../../company.json";
+
 const Help = () => {
   return (
     <div className="help-section" id="help">
         <h2>Help & FAQ</h2>
-        <p>Welcome to the Smart Grocery List application! Here are some tips to get you started:</p>
+        <p>Welcome to the {company.productName} List application! Here are some tips to get you started:</p>
 
         <h3>Adding Items</h3>
         <p>Use the input field at the top of the grocery list to add new items. You can specify the item name, quantity, and category.</p>
@@ -15,7 +17,7 @@ const Help = () => {
         <h3>Clearing Data</h3>
         <p>If you want to start fresh, you can use the "Clear All Data" option in the settings menu to remove all items from your list.</p>
         <h3>Need More Help?</h3>
-        <p>If you have any questions or need further assistance, feel free to reach out to our support team at <a href="mailto:contact.smartgrocery@gmail.com">contact.smartgrocery@gmail.com</a>.</p>
+        <p>If you have any questions or need further assistance, feel free to reach out to our support team at <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>.</p>
     </div>
   );
 }

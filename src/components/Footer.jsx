@@ -1,8 +1,11 @@
-const Footer = () =>{
-    return (
-        <footer>
-            <p>© 2025 Smart Grocery. All rights reserved.</p>
-        </footer>
-    );  
-}
+import company from "../../company.json";
+
+const Footer = () => {
+  return (
+    <footer>
+      <p>{company.copyright}</p>
+    </footer>
+  );
+};
+
 export default Footer;

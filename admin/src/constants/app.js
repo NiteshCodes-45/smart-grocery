@@ -1,4 +1,5 @@
 import { appName, appVersion } from '@/config/env';
+import company from '../../../company.json';
 
 export const APP_NAME = appName;
 export const APP_VERSION = appVersion;
@@ -63,9 +64,9 @@ export const INITIAL_DASHBOARD_STATS = {
 };
 
 export const INITIAL_SETTINGS = {
-  appName: 'Smart Grocery',
+  appName: company.productName,
   currentVersion: APP_VERSION,
-  supportEmail: 'contact.smartgrocery@gmail.com',
+  supportEmail: company.supportEmail,
 };
 
 export const SESSION_CHART_DATA = [

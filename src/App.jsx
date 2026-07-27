@@ -8,10 +8,12 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DeleteAccount from "./pages/DeleteAccount";
 import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
+import SeoMetadata from "./components/SeoMetadata";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <SeoMetadata />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/terms" element={<Terms />} />

@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import "./LandingPage.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import company from "../../company.json";
 
 export default function Contact() {
   return (
@@ -17,11 +17,11 @@ export default function Contact() {
           </p>
 
           <p>
-            <strong>Email:</strong> <a href="mailto:contact.smartgrocery@gmail.com">contact.smartgrocery@gmail.com</a>
+            <strong>Email:</strong> <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
           </p>
 
           <p>
-            Smart Grocery is designed to be practical, organized, and easy to use.
+            {company.productName} is designed to be practical, organized, and easy to use.
           </p>
         </div>
       </div>

@@ -8,10 +8,10 @@ import screen6 from "../assets/app-screenshots/smart-grocery-6.png";
 import landingBg from "../assets/app-screenshots/landing.png";
 import { IoCheckmarkCircleOutline, IoCartOutline, IoTimeOutline, IoAnalyticsOutline } from 'react-icons/io5';
 import "./LandingPage.css";
-import { Link } from 'react-router-dom';
 import Footer from "./Footer";
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
 import HeroHeader from './Header';
+import company from "../../company.json";
 
 export default function LandingPage() {
   const carouselImages = [screen1, screen2, screen3, screen4, screen5, screen6];
@@ -59,12 +59,17 @@ export default function LandingPage() {
           <div className="hero-grid">
             {/* LEFT CONTENT */}
             <div className="hero-copy">
+              <a
+                href={company.website}
+                className="product-badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                A Product by <span>{company.companyName}</span>
+              </a>
+
               <h1 className="hero-title">
-                Organize.
-                <br />
-                Track.
-                <br />
-                Understand.
+                {company.productName}
               </h1>
 
               <p className="hero-subtitle">
@@ -89,7 +94,7 @@ export default function LandingPage() {
                 <div className="hero-logo-circle">
                   <img
                     src={landingBg}
-                    alt="Smart Grocery"
+                    alt={company.productName}
                     className="hero-screenshot"
                   />
                 </div>
@@ -109,7 +114,7 @@ export default function LandingPage() {
 
         {/* ---------------- CORE BENEFITS ---------------- */}
         <section className="section">
-          <h2 className="section-title">Why households trust Smart Grocery</h2>
+          <h2 className="section-title">Why households trust {company.productName}</h2>
 
           <div className="benefits-grid">
             <Benefit
@@ -213,7 +218,7 @@ export default function LandingPage() {
             <div>
               <h2 className="section-title">App Preview</h2>
               <p className="section-subtitle">
-                A compact preview of the Smart Grocery interface that keeps the full screen visible.
+                A compact preview of the {company.productName} interface that keeps the full screen visible.
               </p>
             </div>
           </div>
@@ -265,6 +270,25 @@ export default function LandingPage() {
                 ›
               </button>
             </div>
+          </div>
+        </section>
+
+        {/* ---------------- ABOUT ---------------- */}
+        <section className="about-company-section">
+          <div className="about-company-content">
+            <p className="section-kicker">Built by {company.companyName}</p>
+            <h2 className="section-title">Thoughtful tools for everyday routines</h2>
+            <p className="about-company-copy">
+              {company.productName} is proudly developed by {company.companyName}, a software studio focused on building thoughtful digital products that simplify everyday life.
+            </p>
+            <a
+              href={company.website}
+              className="secondary-btn about-company-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit {company.companyName}
+            </a>
           </div>
         </section>
 
