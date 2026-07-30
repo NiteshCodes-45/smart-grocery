@@ -298,7 +298,7 @@ export default function LandingPage() {
             <div className="cta-card">
               <h3 className="cta-title">Start organizing smarter today.</h3>
               <div className="cta-buttons">
-                <a href="#" className="cta-store-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.neets.smartgrocery" className="cta-store-btn">
                   <icon className="cta-icon">
                     <FaGooglePlay />
                   </icon>{" "}
