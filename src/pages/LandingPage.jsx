@@ -9,7 +9,6 @@ import landingBg from "../assets/app-screenshots/landing.png";
 import { IoCheckmarkCircleOutline, IoCartOutline, IoTimeOutline, IoAnalyticsOutline } from 'react-icons/io5';
 import "./LandingPage.css";
 import Footer from "./Footer";
-import { FaGooglePlay, FaApple } from 'react-icons/fa';
 import HeroHeader from './Header';
 import company from "../../company.json";
 
@@ -50,6 +49,18 @@ export default function LandingPage() {
   return (
     <div className="landing-container">
       <div className="landing-content">
+        <div className="launch-banner">
+          <span>🎉 Smart Grocery is now available on Google Play.</span>
+          <a
+            href={company.playStoreUrl}
+            className="launch-banner-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Now
+          </a>
+        </div>
+
         {/* ---------------- HERO Section ---------------- */}
         <section className="hero">
           <div className="hero-bg-decoration"></div>
@@ -78,8 +89,13 @@ export default function LandingPage() {
               </p>
 
               <div className="hero-cta-row">
-                <a href="#download" className="primary-btn-large">
-                  Download App
+                <a
+                  href={company.playStoreUrl}
+                  className="primary-btn-large"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get it on Google Play
                 </a>
 
                 <a href="#features" className="secondary-btn">
@@ -105,11 +121,11 @@ export default function LandingPage() {
 
         {/* ---------------- VALUE STRIP ---------------- */}
         <section className="value-strip" id="features">
-          <ValueItem text="Offline First" />
-          <ValueItem text="Private & Secure" />
-          <ValueItem text="Built for Real Shopping Habits" />
-          <ValueItem text="Clear history" />
-          <ValueItem text="Lightweight design" />
+          <ValueItem text="Grocery List Management" />
+          <ValueItem text="Shopping History" />
+          <ValueItem text="Category Organization" />
+          <ValueItem text="Price Tracking" />
+          <ValueItem text="Offline Support" />
         </section>
 
         {/* ---------------- CORE BENEFITS ---------------- */}
@@ -298,17 +314,18 @@ export default function LandingPage() {
             <div className="cta-card">
               <h3 className="cta-title">Start organizing smarter today.</h3>
               <div className="cta-buttons">
-                <a href="https://play.google.com/store/apps/details?id=com.neets.smartgrocery" className="cta-store-btn">
-                  <icon className="cta-icon">
-                    <FaGooglePlay />
-                  </icon>{" "}
-                  Get it on Android
-                </a>
-                <a href="#" className="cta-store-btn">
-                  <icon className="cta-icon">
-                    <FaApple />
-                  </icon>{" "}
-                  Coming Soon on iOS
+                <a
+                  href={company.playStoreUrl}
+                  className="google-play-badge-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Get Smart Grocery on Google Play"
+                >
+                  <img
+                    src={company.googlePlayBadgeUrl}
+                    alt="Get it on Google Play"
+                    className="google-play-badge"
+                  />
                 </a>
               </div>
             </div>

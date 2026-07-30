@@ -1,6 +1,8 @@
 {
   "companyName": "NitCrafted",
   "website": "https://nitcrafted.com",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.neets.smartgrocery",
+  "googlePlayBadgeUrl": "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png",
   "supportEmail": "support@nitcrafted.com",
   "copyright": "© 2026 NitCrafted. All rights reserved.",
   "socialLinks": [
@@ -21,6 +23,8 @@
     "organization": "NitCrafted",
     "application": "Smart Grocery",
     "author": "NitCrafted",
-    "openGraphTitle": "Smart Grocery by NitCrafted"
+    "title": "Smart Grocery - Simple Grocery Shopping & Expense Tracker",
+    "description": "Organize your grocery shopping, manage lists, track prices, and view shopping history with Smart Grocery. Now available on Google Play.",
+    "openGraphTitle": "Smart Grocery - Simple Grocery Shopping & Expense Tracker"
   }
 }

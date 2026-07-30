@@ -22,8 +22,7 @@ Smart Grocery is a responsive landing website for a grocery planning and spendin
 
 ## Download
 
-- Android: Coming soon
-- iOS: Coming soon
+- Android: [Get it on Google Play](https://play.google.com/store/apps/details?id=com.neets.smartgrocery)
 
 ---
 

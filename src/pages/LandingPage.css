@@ -47,6 +47,35 @@ html {
   margin: 0 auto;
 }
 
+.launch-banner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  border: 1px solid rgba(47, 111, 78, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #1B4332;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.launch-banner-link {
+  color: #2F6F4E;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.launch-banner-link:hover,
+.launch-banner-link:focus-visible {
+  text-decoration: underline;
+}
+
 @media (max-width: 480px) {
   .landing-content {
     padding: 24px 12px;
@@ -720,6 +749,25 @@ html {
   transform: translateY(-2px);
   background-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
+}
+
+.google-play-badge-link {
+  display: inline-flex;
+  line-height: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.google-play-badge-link:hover,
+.google-play-badge-link:focus-visible {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.google-play-badge {
+  display: block;
+  width: 210px;
+  max-width: 100%;
+  height: auto;
 }
 
 .ios-btn {

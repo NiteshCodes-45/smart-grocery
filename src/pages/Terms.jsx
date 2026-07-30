@@ -22,40 +22,35 @@ export default function Terms() {
 
         <h3>2. Accuracy</h3>
         <p>
-          {company.productName} aims to provide useful grocery guidance, but we do not guarantee the accuracy of detected items or suggested shopping details.
+          {company.productName} helps organize grocery lists, prices, categories, and shopping history, but users should review their own entries before making purchase decisions.
         </p>
 
-        <h3>3. Scan features</h3>
-        <p>
-          Optional image or barcode scanning may not always identify every item correctly. Users should verify results before acting on them.
-        </p>
-
-        <h3>4. Liability</h3>
+        <h3>3. Liability</h3>
         <p>
           We are not responsible for any loss or decisions based on app data.
         </p>
 
-        <h3>5. App Availability</h3>
+        <h3>4. App Availability</h3>
         <p>
           {company.productName} may be updated, modified, or temporarily unavailable during maintenance or technical issues.
         </p>
 
-        <h3>6. Acceptable Usage</h3>
+        <h3>5. Acceptable Usage</h3>
         <p>
           Users agree not to misuse the application, attempt unauthorized access, or interfere with app functionality.
         </p>
 
-        <h3>7. Changes</h3>
+        <h3>6. Changes</h3>
         <p>
           We may update these terms at any time.
         </p>
 
-        <h3>8. Limitation of Liability</h3>
+        <h3>7. Limitation of Liability</h3>
         <p>
           {company.productName} is provided as-is without guarantees of uninterrupted availability or error-free operation.
         </p>
 
-        <h3>9. Contact</h3>
+        <h3>8. Contact</h3>
         <p>
           Contact: <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
         </p>

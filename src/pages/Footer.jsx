@@ -29,6 +29,9 @@ export default function Footer() {
           <Link to="/contact">Contact</Link>
           <Link to="/faqs">FAQs</Link>
           <Link to="/delete-account">Delete Account</Link>
+          <a href={company.playStoreUrl} target="_blank" rel="noopener noreferrer">
+            Google Play
+          </a>
         </div>
 
         <div className="footer-social">
