@@ -55,7 +55,7 @@ export function Header({ admin, collapsed, isMobile, onSidebarToggle }) {
 
         <Box flexGrow={1} minWidth={0} px={2}>
           <Typography noWrap variant="h6">
-            {/* {APP_NAME} */}
+            {APP_NAME}
           </Typography>
         </Box>
 

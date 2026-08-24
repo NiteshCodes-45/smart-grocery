@@ -55,6 +55,7 @@ export function DashboardLayout() {
         onClose={() => setMobileOpen(false)}
       />
       <Box
+        aria-label="Admin dashboard content"
         component="main"
         sx={{
           flexGrow: 1,
@@ -65,7 +66,9 @@ export function DashboardLayout() {
         }}
       >
         <Toolbar sx={{ minHeight: 68 }} />
-        <Outlet />
+        <Box maxWidth={1600} mx="auto" width="100%">
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
