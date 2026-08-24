@@ -3,9 +3,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-
-import { auth, db } from '@/firebase/firebase';
+import { auth } from '@/firebase/firebase';
+import { firebaseService } from '@/services/firebaseService';
 
 const mapAdminDocument = (uid, data) => ({
   uid: String(data.uid ?? uid),
@@ -16,14 +15,13 @@ const mapAdminDocument = (uid, data) => ({
 export const authService = {
   async getAdminByUid(uid) {
     // TODO: Expand Firestore admin profile fields and role permissions when the production schema is finalized.
-    const adminRef = doc(db, 'admins', uid);
-    const adminSnap = await getDoc(adminRef);
+    const admin = await firebaseService.getDocument('admins', uid);
 
-    if (!adminSnap.exists()) {
+    if (!admin) {
       return null;
     }
 
-    return mapAdminDocument(uid, adminSnap.data());
+    return mapAdminDocument(uid, admin);
   },
 
   async signIn(email, password) {

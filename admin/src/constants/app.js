@@ -6,6 +6,7 @@ export const APP_VERSION = appVersion;
 
 export const SIDEBAR_ITEMS = [
   { label: 'Dashboard', path: '/dashboard', iconName: 'dashboard' },
+  { label: 'Analytics', path: '/analytics', iconName: 'analytics' },
   { label: 'Users', path: '/users', iconName: 'users' },
   { label: 'Categories', path: '/categories', iconName: 'categories' },
   { label: 'Settings', path: '/settings', iconName: 'settings' },

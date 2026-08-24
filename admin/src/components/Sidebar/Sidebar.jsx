@@ -9,13 +9,14 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { Grid2X2, LayoutDashboard, Settings, Users } from 'lucide-react';
+import { ChartNoAxesCombined, Grid2X2, LayoutDashboard, Settings, Users } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { APP_NAME, SIDEBAR_ITEMS } from '@/constants/app';
 import { EXPANDED_SIDEBAR_WIDTH, getSidebarWidth } from '@/constants/layout';
 
 const iconMap = {
+  analytics: ChartNoAxesCombined,
   dashboard: LayoutDashboard,
   users: Users,
   categories: Grid2X2,

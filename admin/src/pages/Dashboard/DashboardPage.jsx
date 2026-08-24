@@ -1,15 +1,7 @@
 import { Alert, Box, Card, CardContent, Stack, Typography } from '@mui/material';
 import { Grid2X2, PackageCheck, Smartphone, Users } from 'lucide-react';
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
 
+import { AreaTrendChart } from '@/components/Charts/AreaTrendChart';
 import { INITIAL_DASHBOARD_STATS, SESSION_CHART_DATA } from '@/constants/app';
 import { StatsCard } from '@/components/StatsCard/StatsCard';
 import { useAppSelector } from '@/hooks/redux';
@@ -68,35 +60,7 @@ export function DashboardPage() {
                 Placeholder engagement trend until analytics is added.
               </Typography>
             </Box>
-            <Box height={320}>
-              <ResponsiveContainer height="100%" width="100%">
-                <AreaChart data={SESSION_CHART_DATA} margin={{ bottom: 0, left: 0, right: 12, top: 16 }}>
-                  <defs>
-                    <linearGradient id="sessionGradient" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.5} />
-                      <stop offset="95%" stopColor="#34d399" stopOpacity={0.05} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid stroke="rgba(148, 163, 184, 0.16)" strokeDasharray="4 4" />
-                  <XAxis axisLine={false} dataKey="day" tickLine={false} />
-                  <YAxis axisLine={false} tickLine={false} width={36} />
-                  <Tooltip
-                    contentStyle={{
-                      background: '#111827',
-                      border: '1px solid rgba(148, 163, 184, 0.24)',
-                      borderRadius: 8,
-                    }}
-                  />
-                  <Area
-                    dataKey="sessions"
-                    fill="url(#sessionGradient)"
-                    stroke="#38bdf8"
-                    strokeWidth={3}
-                    type="monotone"
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </Box>
+            <AreaTrendChart data={SESSION_CHART_DATA} dataKey="sessions" xAxisKey="day" />
           </Stack>
         </CardContent>
       </Card>

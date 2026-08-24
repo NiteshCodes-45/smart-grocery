@@ -1,6 +1,4 @@
-import { addDoc, collection, doc, getDocs, serverTimestamp, updateDoc } from 'firebase/firestore';
-
-import { db } from '@/firebase/firebase';
+import { firebaseService } from '@/services/firebaseService';
 import { toIsoDate } from '@/utils/date';
 
 const mapCategoryDocument = (id, data) => ({
@@ -13,19 +11,16 @@ const mapCategoryDocument = (id, data) => ({
 
 export const categoryService = {
   async listCategories() {
-    const categoriesSnapshot = await getDocs(collection(db, 'categories'));
+    const categories = await firebaseService.listDocuments('categories');
 
-    return categoriesSnapshot.docs
-      .map((document) => mapCategoryDocument(document.id, document.data()))
+    return categories
+      .map(({ id, ...data }) => mapCategoryDocument(id, data))
       .sort((first, second) => first.name.localeCompare(second.name));
   },
 
   async saveCategory(values, id) {
     if (id) {
-      await updateDoc(doc(db, 'categories', id), {
-        ...values,
-        updatedAt: serverTimestamp(),
-      });
+      await firebaseService.updateDocument('categories', id, values);
 
       return {
         id,
@@ -34,14 +29,10 @@ export const categoryService = {
       };
     }
 
-    const categoryRef = await addDoc(collection(db, 'categories'), {
-      ...values,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-    });
+    const category = await firebaseService.addDocument('categories', values);
 
     return {
-      id: categoryRef.id,
+      id: category.id,
       ...values,
       createdDate: new Date().toISOString(),
     };

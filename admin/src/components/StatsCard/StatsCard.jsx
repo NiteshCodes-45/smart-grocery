@@ -1,7 +1,7 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material';
 import { createElement } from 'react';
 
-export function StatsCard({ title, value, caption, icon: Icon }) {
+export function StatsCard({ title, value, caption, icon: Icon, trend, trendLabel }) {
   return (
     <Card>
       <CardContent>
@@ -11,9 +11,21 @@ export function StatsCard({ title, value, caption, icon: Icon }) {
               {title}
             </Typography>
             <Typography variant="h4">{value}</Typography>
-            <Typography color="text.secondary" variant="caption">
-              {caption}
-            </Typography>
+            <Stack alignItems="center" direction="row" spacing={1}>
+              <Typography color="text.secondary" variant="caption">
+                {caption}
+              </Typography>
+              {trend ? (
+                <Typography color={trend.startsWith('-') ? 'error.main' : 'success.main'} variant="caption">
+                  {trend}
+                </Typography>
+              ) : null}
+              {trendLabel ? (
+                <Typography color="text.secondary" variant="caption">
+                  {trendLabel}
+                </Typography>
+              ) : null}
+            </Stack>
           </Stack>
           <Stack
             alignItems="center"

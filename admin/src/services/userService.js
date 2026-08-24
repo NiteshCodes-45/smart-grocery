@@ -1,6 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore';
-
-import { db } from '@/firebase/firebase';
+import { firebaseService } from '@/services/firebaseService';
 import { toIsoDate } from '@/utils/date';
 
 const getStringField = (data, keys, fallback = '') => {
@@ -42,10 +40,10 @@ const mapUserDocument = (id, data) => {
 
 export const userService = {
   async listUsers() {
-    const usersSnapshot = await getDocs(collection(db, 'users'));
+    const users = await firebaseService.listDocuments('users');
 
-    return usersSnapshot.docs
-      .map((document) => mapUserDocument(document.id, document.data()))
+    return users
+      .map(({ id, ...data }) => mapUserDocument(id, data))
       .sort((first, second) => second.createdDate.localeCompare(first.createdDate));
   },
 };

@@ -25,6 +25,11 @@ const DashboardPage = lazy(() =>
     default: module.DashboardPage,
   })),
 );
+const AnalyticsPage = lazy(() =>
+  import("@/pages/Analytics/AnalyticsPage").then((module) => ({
+    default: module.AnalyticsPage,
+  })),
+);
 const LoginPage = lazy(() =>
   import("@/pages/Login/LoginPage").then((module) => ({
     default: module.LoginPage,
@@ -59,6 +64,7 @@ export function AppRoutes() {
             >
               <Route element={<Navigate replace to="/dashboard" />} path="/" />
               <Route element={<DashboardPage />} path="/dashboard" />
+              <Route element={<AnalyticsPage />} path="/analytics" />
               <Route element={<UsersPage />} path="/users" />
               <Route element={<CategoriesPage />} path="/categories" />
               <Route element={<SettingsPage />} path="/settings" />
