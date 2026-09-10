@@ -176,6 +176,13 @@ export function CategoriesPage() {
                 </TableCell>
               </TableRow>
             ) : null}
+            {status === 'succeeded' && categories.length === 0 ? (
+              <TableRow>
+                <TableCell align="center" colSpan={5} sx={{ py: 6 }}>
+                  No categories have been added yet.
+                </TableCell>
+              </TableRow>
+            ) : null}
             {categories.map((category) => (
               <TableRow hover key={category.id}>
                 <TableCell sx={{ fontSize: 24, width: 84 }}>{category.icon}</TableCell>

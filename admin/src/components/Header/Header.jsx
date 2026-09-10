@@ -54,7 +54,7 @@ export function Header({ admin, collapsed, isMobile, onSidebarToggle }) {
         </Tooltip>
 
         <Box flexGrow={1} minWidth={0} px={2}>
-          <Typography noWrap variant="h6">
+          <Typography noWrap variant="h6" style={{ fontWeight: 700, letterSpacing: 0.5, textAlign: 'center' }}>
             {APP_NAME}
           </Typography>
         </Box>
@@ -68,11 +68,11 @@ export function Header({ admin, collapsed, isMobile, onSidebarToggle }) {
             variant="outlined"
           />
           <Avatar sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', height: 34, width: 34 }}>
-            {admin?.email?.charAt(0).toUpperCase() ?? 'A'}
+            {admin?.name?.charAt(0).toUpperCase() ?? 'SG'}
           </Avatar>
           <Box display={{ xs: 'none', sm: 'block' }} maxWidth={260}>
             <Typography noWrap variant="body2">
-              {admin?.email ?? 'Admin'}
+              {admin?.name ?? 'Admin'}
             </Typography>
             <Typography color="text.secondary" noWrap variant="caption">
               {admin?.role ?? 'Verifying'}

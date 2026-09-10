@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, limit, orderBy, query, serverTimestamp, updateDoc } from 'firebase/firestore';
 
 import { db } from '@/firebase/firebase';
 
@@ -11,8 +11,19 @@ export const firebaseService = {
     return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
   },
 
-  async listDocuments(collectionName) {
-    const snapshot = await getDocs(getCollectionReference(collectionName));
+  async listDocuments(collectionName, { limitCount, orderByField, orderDirection = 'desc' } = {}) {
+    const collectionReference = getCollectionReference(collectionName);
+    const constraints = [];
+
+    if (orderByField) {
+      constraints.push(orderBy(orderByField, orderDirection));
+    }
+
+    if (limitCount) {
+      constraints.push(limit(limitCount));
+    }
+
+    const snapshot = await getDocs(query(collectionReference, ...constraints));
 
     return snapshot.docs.map((document) => ({ id: document.id, ...document.data() }));
   },

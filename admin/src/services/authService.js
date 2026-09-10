@@ -10,6 +10,7 @@ const mapAdminDocument = (uid, data) => ({
   uid: String(data.uid ?? uid),
   email: String(data.email ?? ''),
   role: String(data.role ?? 'admin'),
+  name: String(data.name ?? ''),
 });
 
 export const authService = {

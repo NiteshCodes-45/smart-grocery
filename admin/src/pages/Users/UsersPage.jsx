@@ -49,8 +49,6 @@ export function UsersPage() {
     );
   }, [searchTerm, users]);
 
-  console.log('Filtered Users:', filteredUsers); // Debugging line
-
   return (
     <Stack spacing={3}>
       <Stack
@@ -103,6 +101,7 @@ export function UsersPage() {
               paginationModel: { pageSize: 10 },
             },
           }}
+          localeText={{ noRowsLabel: 'No users match the current search.' }}
           pageSizeOptions={[5, 10, 25]}
           rows={filteredUsers}
         />
