@@ -49,17 +49,24 @@ export default function LandingPage() {
   return (
     <div className="landing-container">
       <div className="landing-content">
-        <div className="launch-banner">
-          <span>🎉 Smart Grocery is now available on Google Play.</span>
+        <aside className="launch-banner" aria-label="Latest release">
+          <div className="release-announcement-copy">
+            <strong>Smart Grocery v1.1.0 is here 🎉</strong>
+            <p>
+              Grocery shopping is now more visual and organized with grocery item
+              images, expanded categories, festival shopping support, and
+              improvements across the app.
+            </p>
+          </div>
           <a
             href={company.playStoreUrl}
             className="launch-banner-link"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Download Now
+            Update on Google Play
           </a>
-        </div>
+        </aside>
 
         {/* ---------------- HERO Section ---------------- */}
         <section className="hero">
@@ -150,6 +157,41 @@ export default function LandingPage() {
               title="Easy spending insights"
               desc="View practical spend summaries and category breakdowns for better planning."
             />
+          </div>
+        </section>
+
+        <section className="section" aria-labelledby="whats-new-title">
+          <h2 className="section-title" id="whats-new-title">
+            What's New in Smart Grocery v1.1.0
+          </h2>
+          <div className="intelligence-grid release-grid">
+            {[
+              {
+                title: "More visual grocery planning",
+                description: "Grocery items now include images, making lists easier to scan and manage.",
+              },
+              {
+                title: "More grocery categories",
+                description: "Better organization with categories for pulses, grains, spices, cooking essentials, meat & eggs, household products, personal care, puja & festival items, and more.",
+              },
+              {
+                title: "Festival shopping support",
+                description: "Plan festival essentials with dedicated suggestions and timely reminders.",
+              },
+              {
+                title: "Improved notifications",
+                description: "More reliable shopping, recurring-item and festival reminders.",
+              },
+              {
+                title: "Reliability improvements",
+                description: "Notification handling, app stability, environment configuration and crash reporting have been improved.",
+              },
+            ].map(({ title, description }) => (
+              <article className="intelligence-card release-card" key={title}>
+                <h3 className="intelligence-title">{title}</h3>
+                <p className="benefit-desc">{description}</p>
+              </article>
+            ))}
           </div>
         </section>
 

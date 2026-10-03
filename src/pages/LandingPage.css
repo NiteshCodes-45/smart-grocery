@@ -66,6 +66,8 @@ html {
 }
 
 .launch-banner-link {
+  flex-shrink: 0;
+  padding: 10px 0;
   color: #2F6F4E;
   font-weight: 800;
   text-decoration: none;
@@ -74,6 +76,31 @@ html {
 .launch-banner-link:hover,
 .launch-banner-link:focus-visible {
   text-decoration: underline;
+}
+
+.release-announcement-copy {
+  flex: 1 1 480px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.release-announcement-copy p {
+  margin: 4px 0 0;
+  color: #53605a;
+  font-weight: 400;
+}
+
+.release-grid {
+  text-align: left;
+}
+
+.release-card .intelligence-title {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.release-card:last-child {
+  grid-column: 1 / -1;
 }
 
 @media (max-width: 480px) {
